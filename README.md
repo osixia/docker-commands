@@ -3,12 +3,12 @@ docker-commands on ubuntu
 
 ### Stop all containers
 
-    sudo docker.io stop $(sudo docker.io ps -a -q)
+    sudo docker stop $(sudo docker ps -a -q)
 
 ### Remove all containers
 
-    sudo docker.io rm $(sudo docker.io ps -a -q)
+    sudo docker rm $(sudo docker ps -a -q)
 
 ### Remove all images
 
-    for i in `sudo docker.io images|awk '{print $3}'`;do sudo docker.io rmi $i;done
+    for i in `sudo docker images|awk '{print $3}'`;do sudo docker rmi $i;done
