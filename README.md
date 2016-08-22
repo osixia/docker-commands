@@ -17,3 +17,6 @@ docker-commands on ubuntu
 
     for i in `sudo docker images|awk '{print $3}'`;do sudo docker rmi $i;done
 
+### Pull again all images
+    
+    docker images --filter "dangling=false" --format "{{.Repository}}:{{.Tag}}" | xargs -L1 docker pull
