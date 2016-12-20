@@ -9,9 +9,13 @@ docker-commands on ubuntu
 
     sudo docker rm $(sudo docker ps -a -q)
 
-### remove all exited containers
+### Remove all exited containers
 
     sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+
+### Remove orphaned volumes
+    
+    docker volume rm $(docker volume ls -qf dangling=true)
 
 ### Remove all images
 
